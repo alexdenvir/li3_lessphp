@@ -12,7 +12,9 @@ Libraries::add('Less', array(
         ));
 require_once("lessc.inc.php");
 
-include(__DIR__ . "/../template/helper/Less.php");
+var_dump('less');
+
+include(LITHIUM_LIBRARY_PATH . "/extensions/helpers/Less.php");
 
 ?>
 
