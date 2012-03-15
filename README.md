@@ -15,9 +15,4 @@ Add the library to your libraries bootstrap: Libraries::add('Less');
 Create directories in your app/webroot for css and less - make sure the css directory is writable.
 
 Set up your .htaccess for css cachebursting - css urls will point to "/css/[css modified time]/*.css", so a rewrite rule like the following should work:
-
-<IfModule mod_rewrite.c>
-   RewriteCond %{REQUEST_FILENAME} !-f
-   RewriteCond %{REQUEST_FILENAME} !-d
-   RewriteRule ^/css/(\d+)/(.+)\.css /css/$2.css [L]
-</IfModule>
+RewriteRule ^/css/(\d+)/(.+)\.css /css/$2.css [L]
