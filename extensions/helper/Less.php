@@ -1,6 +1,8 @@
 <?php
 
-namespace Less\template\helper;
+namespace Less\extensions\helper;
+
+use lithium\analysis\Logger;
 
 class Less extends \lithium\template\Helper {
 
@@ -35,7 +37,9 @@ class Less extends \lithium\template\Helper {
             }
         }
         else {
-            lessc::ccompile($less, $css);
+            include_once(dirname(dirname(dirname(__FILE__))) . '/_source/lessphp/lessc.inc.php');
+
+            \lessc::ccompile($less, $css);
             if (\file_exists($css)) {
                 return '<link rel="stylesheet" type="text/css" href="/css/' . \filemtime($css) . '/' . $path . '.css">';
             }
